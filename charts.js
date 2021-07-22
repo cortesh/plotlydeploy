@@ -5,6 +5,7 @@ function init() {
   // Use the list of sample names to populate the select options
   d3.json("samples.json").then((data) => {
     var sampleNames = data.names;
+    
 
     sampleNames.forEach((sample) => {
       selector
@@ -34,6 +35,7 @@ function optionChanged(newSample) {
 function buildMetadata(sample) {
   d3.json("samples.json").then((data) => {
     var metadata = data.metadata;
+    
     // Filter the data for the object with the desired sample number
     var resultArray = metadata.filter(sampleObj => sampleObj.id == sample);
     var result = resultArray[0];
@@ -62,6 +64,7 @@ function buildCharts(sample) {
     (data) => {
     // 3. Create a variable that holds the samples array. 
     var sampledata = data.samples;
+    console.log(sampledata);
     var metadata = data.metadata;
 
     // 4. Create a variable that filters the samples for the object with the desired sample number.
